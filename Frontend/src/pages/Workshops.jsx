@@ -31,6 +31,7 @@ import cloud from '../assets/cloudcomputing.png'
 import credLogo from '../assets/CredAvenue.png'
 import codebasics from '../assets/codebasics.jpg'
 import datascience from '../assets/datascience.jpg'
+import blockchain from '../assets/blockchain.png'
 
 class Workshops extends Component {
 
@@ -185,7 +186,7 @@ class Workshops extends Component {
         this.setState({ isLoading: true }, () => {
             const userId = localStorage.getItem('id')
             if(userId) {
-                axios.post(/*'https://samhitabackend.herokuapp.com/details'*/'http://localhost:4000/details', {
+                axios.post('https://samhitabackend.herokuapp.com/details'/*'http://localhost:4000/details'*/, {
                     userid: userId
                 }).then(res => {
                     this.setState({ isLoading: false })
@@ -253,7 +254,11 @@ class Workshops extends Component {
                 <Navbar name = 'workshop' />
                 <section className = 'section workshops-main-container' style = {{overflowX: 'hidden'}}>
                     <div data-aos = 'fade-right' className = 'container workshop-container-first'>
+                    <div className='container'>
+                            <marquee style={{color:'red'}}>* All Workshops will start around 9:30 AM in the morning. Please report to the venue accordingly</marquee>
+                            </div><br/>
                     <div className = 'columns'>
+                        
                             <div className = 'column is-half' style = {{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
                                 <LazyLoadImage src = {uiux} alt = 'Android app development workshop' effect = 'blur'/>
                             </div>
@@ -383,7 +388,7 @@ class Workshops extends Component {
                                             <div className = 'control has-icons-right'>
                                                 <button className = 'button is-rounded is-link has-text-weight-semibold is-lato' onClick = {() => this.handleWorkshopPayment('a1')}>
                                                     BUY
-                                                </button><p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Registration opens Soon.</p>
+                                                 </button>{/*<p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Registration opens Soon.</p> */}
                                             </div>
                                         </div>
                                     </div>
@@ -540,7 +545,7 @@ class Workshops extends Component {
                                                 <button className = 'button is-lato is-rounded is-link has-text-weight-semibold'  onClick = {() => this.handleWorkshopPayment('m1')}>
                                                     BUY
                                                 </button>
-                                                <p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Registration opens Soon.</p>
+                                                {/* <p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Registration opens Soon.</p> */}
                                             </div>
                                         </div>
                                     </div>
@@ -866,6 +871,12 @@ class Workshops extends Component {
                                                 <li>Query & interactive session.</li>
                                             </ol>
                                             <hr/>
+                                            <strong>With this Workshop you get</strong>
+                                            <ol>
+                                               <li>Rs.500 OFF Coupon codes applicable on Guvi Self Learning courses.</li>
+                                               <li>Rs.10000 OFF on Guvi Job oriented courses(Zen Class).</li>
+                                               <li>Workshop Participation Certificate by GUVI to all candidates attending the event</li>
+                                            </ol>
                                             {/* <p style = {{marginBottom: '1rem'}}><strong>Know the mentor</strong></p>
                                             <p style = {{marginBottom: '1rem'}}><strong>Mr. Shashi Bhushan</strong></p>
                                             <p>Worked with Adobe for about 2 years, Shashi Bhushan has sound knowledge of technologies like Java, Spring/Spring Boot, Hibernate, REST APIs, Python, Django, etc with a first-class hands-on of DSA. He graduated from NIT Allahabad in 2016 and worked for Paytm as a Software Engineer for a year. He is very passionate about Competitive Programming & Problem Solving. He is currently working as a Mentor at GeeksforGeeks.</p>
@@ -947,14 +958,23 @@ class Workshops extends Component {
                                                         FREE*
                                                     </div>
                                                 </Tooltip>
+                                              
                                             </div>
                                         </div>
+                                        <div className='field is-grouped workshop-detail-row'>
+                                            <ul>
+                                                <strong>By Attending Placement Workshop you</strong>
+                                                <li style={{listStyleType:'disc'}}>Access to attend all technical and nontechnical events</li>
+                                                <li style={{listStyleType:'disc'}}>Rs.500 OFF Coupon codes applicable on Guvi Self Learning courses.</li>
+                                                <li style={{listStyleType:'disc'}}>Rs.10000 OFF on Guvi Job oriented courses(Zen Class).</li>
+                                            </ul>
+                                              </div>
                                          {/* <button className = 'button is-loading is-rounded is-link has-text-weight-semibold is-lato' style = {{backgroundColor: '#32A176'}} disabled onClick = {this.handleFreeWorkshop}>
                                                         Buy for free
                                                 </button> */}
                                         <div className = 'field is-grouped'>
                                             <div className = 'control has-icons-right'>
-                                                {
+                                                {/* {
                                                     isLoading ? 
                                              <p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Registration opens Soon.</p>
                                                    
@@ -964,11 +984,12 @@ class Workshops extends Component {
                                                     <button className = 'button is-rounded is-link has-text-weight-semibold is-lato'  onClick = {this.handleFreeWorkshop}>
                                                         BUY
                                                     </button>
-                                                } 
+                                                }  */}
+                                                <p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Comes along with Samhita '22 ticket</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className = 'subtitle is-6 is-lato has-text-weight-semibold has-text-danger' style = {{marginTop: '1rem'}}>*Onsite registrations are available for limited number of seats!. SO be quick to register once its open.</div>
+                                    {/* <div className = 'subtitle is-6 is-lato has-text-weight-semibold has-text-danger' style = {{marginTop: '1rem'}}>*Onsite registrations are available for limited number of seats!. SO be quick to register once its open.</div> */}
                                 </section>
                             </div>
                         </div>
@@ -1082,7 +1103,7 @@ class Workshops extends Component {
                                             <div className = 'control has-icons-right'>
                                                 <button className = 'button is-rounded is-link is-lato has-text-weight-semibold'  onClick = {() => this.handleWorkshopPayment('e1')}>
                                                     Buy  
-                                                </button><p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Registration opens Soon.</p>
+                                               </button> {/* <p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Registration opens Soon.</p> */}
                                                  <span className = 'icon is-right buy-ticket-icon-3 icon-is-hidden'>
                                                     <FontAwesomeIcon icon = {faShoppingCart} size = 'sm' color = 'white' />
                                                 </span> 
@@ -1207,7 +1228,7 @@ class Workshops extends Component {
                                             <div className = 'control has-icons-right'>
                                                 <button className = 'button is-rounded is-link is-lato has-text-weight-semibold'  onClick = {() => this.handleWorkshopPayment('i1')}>
                                                     Buy  
-                                                </button><p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Registration opens Soon.</p>
+                                                 </button>{/*<p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Registration opens Soon.</p> */}
                                                  <span className = 'icon is-right buy-ticket-icon-3 icon-is-hidden'>
                                                     <FontAwesomeIcon icon = {faShoppingCart} size = 'sm' color = 'white' />
                                                 </span> 
@@ -1359,18 +1380,18 @@ class Workshops extends Component {
                                                 </button> */}
                                         <div className = 'field is-grouped'>
                                             <div className = 'control has-icons-right'>
-                                                {
+                                                {/* {
                                                     isLoading ? 
                                              <p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Registration opens Soon.</p>
                                                    
                                                 
                                                    :
 
-                                                    <button className = 'button is-rounded is-link has-text-weight-semibold is-lato'  onClick = {this.handleFreeWorkshop}>
-                                                        BUY
-                                                    </button>
-                                                } 
-                                                <p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Registration opens Soon.</p>
+                                                    // <button className = 'button is-rounded is-link has-text-weight-semibold is-lato'  onClick = {this.handleFreeWorkshop}>
+                                                    //     BUY
+                                                    // </button>
+                                                }  */}
+                                                <p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Comes along with Samhita '22 ticket</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1379,6 +1400,131 @@ class Workshops extends Component {
                             </div>
                         </div>
                     </div>
+                    <div data-aos = 'fade-left' className = 'container workshop-container'>
+                        <div className = 'columns workshop-columns'>
+                            <div className = 'column workshop-content-alt'>
+                                <div className = 'field upper-alt'>
+                                    <div className = 'control'>
+                                        <div className = 'title is-2 is-lato workshop-title-alt'>
+                                            Blockchain Workshop
+                                        </div>
+                                    </div>
+                                    <div className = 'control' style = {{margin: '20px 0px 0px 0px'}}>
+                                        {/* <span className = 'subtitle is-6 is-lato'>by</span> */}
+                                        <span className = 'organiser-logo-2' style = {{margin: '0px 5px'}}>
+                                            {/* <LazyLoadImage src = {credLogo} alt = 'Crayon Logo' width = {100} height = {60} effect = 'blur' />  */}
+                                        </span>
+                                    </div>
+                                </div>
+                                <div className = 'field' style = {{marginTop: '-20px'}}>
+                                    <div className = 'control'>
+                                        <div className = 'subtitle is-6 is-lato workshop-summary-alt'>
+                                        Blockchain Technology is an emerging technology suitable for decentralised and transactional sharing of data across a large network of untrusted participants. It is an innovative distributed ledger technology where verification data for the transactional records is cryptographically secured against tampering and stored in blocks.
+                                        This enables transparency and gives a unique solution to the problem of trust in the digital world, leading towards decentralised trust. It has good potential to transform the logging and management of transactions in different application areas. 
+                                        Considering the growing importance of Blockchain Technologies and its potential in different sectors, this one day workshop is planned and session would be delivered by experts from academia and industry.
+                                        </div>
+                                        {/* <div className = 'subtitle has-text-link is-6 is-lato workshop-summary' style = {{cursor: 'pointer'}} onClick = {this.showHackingDrawer}> */}
+                                           <p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Agenda & FAQ will be  updated Soon.</p>
+                                        {/* </div> */}
+                                        {/* <Drawer                                                  
+                                            className = 'is-lato'
+                                            title="Agenda of the workshop"
+                                            width = '90%'
+                                            placement = 'left'
+                                            closable={true}
+                                            onClose={this.onHackingClose}
+                                            visible={this.state.hackingDrawerVisible}
+                                            >
+                                            <p><strong>Everything with proper hands-on demo</strong></p><br/>
+                                            <p><strong>10:00 AM</strong></p>
+                                            <p><strong>Information Gathering:</strong></p>
+                                            <ol style = {{marginBottom: '5px'}}>
+                                                <li>Directory Bruteforcing</li>
+                                                <li>Google Dorking</li>
+                                                <li>Sub-Domain Enumeration</li>
+                                                <li>Shodan</li>
+                                                <li>Wayback Machines</li>
+                                            </ol>
+                                            <p><strong>MITM:</strong></p>
+                                            <ol style = {{marginBottom: '5px'}}>
+                                                <li>Wireshark</li>
+                                                <li>ARP Spoofing</li>
+                                            </ol>
+                                            <p><strong>11:15 AM</strong></p>
+                                            <ol style = {{marginBottom: '5px'}}>
+                                                <li>How proxies work?</li>
+                                                <li>Burp Suite Proxy Configuration</li>
+                                            </ol>
+                                            <p><strong>1:00 PM</strong></p>
+                                            <p style = {{marginBottom: '5px'}}>Lunch</p>
+                                            <strong>2:00 PM</strong><br/>
+                                            <strong>Web vulnerabilities:</strong>
+                                            <ol style = {{marginBottom: '5px'}}>
+                                                <li>SQLI</li>
+                                                <li>File Path Traversal Attack</li>
+                                                <li>OTP Brute Force Attack</li>
+                                            </ol>
+                                            <p><strong>Miscellaneous:</strong></p>
+                                            <ol style = {{marginBottom: '5px'}}>
+                                                <li>Bug Hunting</li>
+                                                <li>CTF</li>
+                                                <li>Kickthemout</li>
+                                            </ol>
+                                            <p><strong>Pre-requisites:</strong></p>
+                                            <p style = {{marginBottom: '5px'}}>Kali linux OS in a Virtual box/VMWare</p>
+                                        </Drawer> */}
+                                    </div>
+                                </div>
+                                <section className = 'section'>
+                                    <div className = 'container'>
+                                        <div className ='field is-grouped workshop-detail-row'>
+                                            <div className = 'control workshop-detail-icon-1'>
+                                                <FontAwesomeIcon icon = {faCalendarAlt} size = 'lg' />
+                                            </div>
+                                            <div className ='control'>
+                                                <div className = 'subtitle is-5 is-lato workshop-detail'>
+                                                    April 24
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className ='field is-grouped workshop-detail-row'>
+                                            <div className = 'control workshop-detail-icon-2' style = {{marginLeft: '-5px'}} >
+                                                <FontAwesomeIcon icon = {faClock} size = 'lg' />
+                                            </div>
+                                            <div className ='control'>
+                                                <div className = 'subtitle is-5 is-lato workshop-detail'>
+                                                    9:30 AM - 4:30 PM
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className ='field is-grouped workshop-detail-row'>
+                                            <div className = 'control workshop-detail-icon-3' style = {{marginLeft: '5px'}} >
+                                                <FontAwesomeIcon icon = {faRupeeSign} size = 'lg' />
+                                            </div>
+                                            <div className ='control'>
+                                                <div className = 'subtitle is-5 is-lato workshop-detail'>
+                                                    799 per head
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className = 'field is-grouped'>
+                                            <div className = 'control has-icons-right'>
+                                                <button className = 'button is-rounded is-link is-lato has-text-weight-semibold'  onClick = {() => this.handleWorkshopPayment('p1')}>
+                                                    Buy  
+                                                 </button>{/*<p style={{fontSize:'18px',color:'red'}}><sup>*</sup>Registration opens Soon.</p> */}
+                                                 <span className = 'icon is-right buy-ticket-icon-3 icon-is-hidden'>
+                                                    <FontAwesomeIcon icon = {faShoppingCart} size = 'sm' color = 'white' />
+                                                </span> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                            <div className = 'column is-half' style = {{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                                <LazyLoadImage src = {blockchain} style={{width:'90%',height:'auto',marginLeft:'20px'}} alt = 'Blockchain Workshop' effect = 'blur' />
+                            </div>
+                        </div>
+                    </div> 
                 </section>
             </React.Fragment>
         )

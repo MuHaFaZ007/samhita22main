@@ -57,7 +57,7 @@ const userSchema = new Schema({
     
 });
 
-const User = mongoose.model('Python_db', userSchema);
+const User = mongoose.model('cloud_db', userSchema);
 module.exports = User;
 
 

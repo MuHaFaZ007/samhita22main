@@ -19,5 +19,5 @@ const userSchema = new Schema({
     
 });
 
-const User = mongoose.model('AI_db', userSchema);
+const User = mongoose.model('UI_db', userSchema);
 module.exports = User;

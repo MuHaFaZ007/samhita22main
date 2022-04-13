@@ -4,7 +4,7 @@ import { Avatar } from 'antd'
 class Event extends Component {
 
     render() {
-        const { avatar, title, date, size, onsite, description, children, contactName, contactNumber, prelims, finals, fullTime, gameTime, treasureTime, online, eventTime, uxTime } = this.props
+        const { avatar, title, date, size, onsite, description, children, contactName, contactNumber, prelims, finals, fullTime, gameTime, treasureTime, online, eventTime, uxTime,olpcTime } = this.props
         return (
             <React.Fragment>
                 <div className = 'field is-grouped'>
@@ -42,12 +42,20 @@ class Event extends Component {
                         {
                             fullTime ? 
 
-                            <div className = 'field' style = {{marginTop: '-10px'}}>
-                                <div className = 'control'>
-                                    <label className = 'label is-lato'>
-                                        Time: <span style = {{fontWeight: 'normal'}}>9:30 AM - 4:30 PM</span>
-                                    </label>
-                                </div>
+                            // <div className = 'field' style = {{marginTop: '-10px'}}>
+                            //     <div className = 'control'>
+                            //         <label className = 'label is-lato'>
+                            //             Time: <span style = {{fontWeight: 'normal'}}>9:30 AM - 4:30 PM</span>
+                            //         </label>
+                            //     </div>
+                            // </div>
+                            <div className = 'field is-grouped' style = {{marginTop: '-10px'}}>
+                            <div className = 'control'>
+                                <label className = 'label is-lato'>Time:</label>
+                            </div>
+                            <div className = 'control' style = {{marginTop: '2.5px', marginLeft: '-8px'}}>
+                                <div className = 'subtitle is-6 is-lato'> 9:30 AM - 4:30 PM</div>
+                            </div>
                             </div>
 
                             : gameTime ? 
@@ -77,6 +85,24 @@ class Event extends Component {
                                         Time: <span style = {{fontWeight: 'normal'}}>2 PM - 4:30 PM</span>
                                     </label>
                                 </div>
+                            </div>
+
+                            : olpcTime ?
+
+                            // <div className = 'field' style = {{marginTop: '-10px'}}>
+                            //     <div className = 'control'>
+                            //         <label className = 'label is-lato'>
+                            //             Time: <span style = {{fontWeight: 'normal'}}>8 PM - 10 PM</span>
+                            //         </label>
+                            //     </div>
+                            // </div>
+                            <div className = 'field is-grouped' style = {{marginTop: '-10px'}}>
+                            <div className = 'control'>
+                                <label className = 'label is-lato'>Time:</label>
+                            </div>
+                            <div className = 'control' style = {{marginTop: '2.5px', marginLeft: '-8px'}}>
+                                <div className = 'subtitle is-6 is-lato'> 8 PM - 10 PM</div>
+                            </div>
                             </div>
 
                             : eventTime ?
@@ -172,25 +198,62 @@ class Event extends Component {
                             null
                         }
                         {
-                            fullTime ? 
+                            olpcTime ?
 
-                            <div className = 'field' style = {{marginTop: '-10px'}}>
-                                <div className = 'control'>
-                                    <label className = 'label is-lato'>
-                                        Time: <span style = {{fontWeight: 'normal'}}>9:30 AM - 4:30 PM</span>
-                                    </label>
-                                </div>
+                            // <div className = 'field' style = {{marginTop: '-10px'}}>
+                            //     <div className = 'control'>
+                            //         <label className = 'label is-lato'>
+                            //         Time: <span style = {{fontWeight: 'normal'}}>8 PM - 10 PM</span>
+                            //         </label>
+                            //     </div>
+                            // </div>
+
+                            <div className = 'field is-grouped' style = {{marginTop: '-10px'}}>
+                            <div className = 'control'>
+                                <label className = 'label is-lato'>Time:</label>
                             </div>
+                            <div className = 'control' style = {{marginTop: '2.5px', marginLeft: '-8px'}}>
+                                <div className = 'subtitle is-6 is-lato'> 8 PM - 10 PM</div>
+                            </div>
+                            </div>
+
+                            :fullTime ? 
+
+                            <div className = 'field is-grouped' style = {{marginTop: '-10px'}}>
+                            <div className = 'control'>
+                                <label className = 'label is-lato'>Time:</label>
+                            </div>
+                            <div className = 'control' style = {{marginTop: '2.5px', marginLeft: '-8px'}}>
+                                <div className = 'subtitle is-6 is-lato'> 9:30 AM - 4:30 PM</div>
+                            </div>
+                            </div>
+
+                            // <div className = 'field' style = {{marginTop: '-10px'}}>
+                            //     <div className = 'control'>
+                            //         <label className = 'label is-lato'>
+                            //             Time: <span style = {{fontWeight: 'normal'}}>9:30 AM - 4:30 PM</span>
+                            //         </label>
+                            //     </div>
+                            // </div>
 
                             : gameTime ? 
 
-                            <div className = 'field' style = {{marginTop: '-10px'}}>
-                                <div className = 'control'>
-                                    <label className = 'label is-lato'>
-                                        Time: <span style = {{fontWeight: 'normal'}}>9:30 AM - 3 PM</span>
-                                    </label>
-                                </div>
+                            // <div className = 'field' style = {{marginTop: '-10px'}}>
+                            //     <div className = 'control'>
+                            //         <label className = 'label is-lato'>
+                            //             Time: <span style = {{fontWeight: 'normal'}}>9:30 AM - 3 PM</span>
+                            //         </label>
+                            //     </div>
+                            // </div>
+                            <div className = 'field is-grouped' style = {{marginTop: '-10px'}}>
+                            <div className = 'control'>
+                                <label className = 'label is-lato'>Time:</label>
                             </div>
+                            <div className = 'control' style = {{marginTop: '2.5px', marginLeft: '-8px'}}>
+                                <div className = 'subtitle is-6 is-lato'> 9:30 AM - 3 PM</div>
+                            </div>
+                            </div>
+
 
                             : treasureTime ?
 
@@ -204,12 +267,20 @@ class Event extends Component {
 
                             : eventTime ?
 
-                            <div className = 'field' style = {{marginTop: '-10px'}}>
-                                <div className = 'control'>
-                                    <label className = 'label is-lato'>
-                                        Time: <span style = {{fontWeight: 'normal'}}>9 AM - 1 PM</span>
-                                    </label>
-                                </div>
+                            // <div className = 'field' style = {{marginTop: '-10px'}}>
+                            //     <div className = 'control'>
+                            //         <label className = 'label is-lato'>
+                            //             Time: <span style = {{fontWeight: 'normal'}}>9 AM - 1 PM</span>
+                            //         </label>
+                            //     </div>
+                            // </div>
+                            <div className = 'field is-grouped' style = {{marginTop: '-10px'}}>
+                            <div className = 'control'>
+                                <label className = 'label is-lato'>Time:</label>
+                            </div>
+                            <div className = 'control' style = {{marginTop: '2.5px', marginLeft: '-8px'}}>
+                                <div className = 'subtitle is-6 is-lato'> 9 AM - 1 PM</div>
+                            </div>
                             </div>
 
                             : uxTime ?

@@ -7,7 +7,7 @@ dotenv.config();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Cashfree PG simulator' });
+  res.render('index', { title: 'RazorPay PG simulator' });
 });
 
 // router.get('/request', function(req, res, next) {

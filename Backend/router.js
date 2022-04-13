@@ -125,9 +125,7 @@ app.post("/orders", async (req, res) => {
 			key_secret: "dl453MHchKT72iZeGyMMPZGZ",
 		});
         if (req.body.amount == 'dl*')
-            amount = 250
-        if (req.body.amount == 'qp-')
-            amount = 750
+            amount = 300
         if (req.body.amount == 'wb%')
             amount = 849
         if (req.body.amount == 'yo@')
@@ -153,7 +151,7 @@ app.post("/orders", async (req, res) => {
 });
 
 app.post("/verify", async (req, res) => {
-	try {
+	// try {
 		const { razorpay_order_id, razorpay_payment_id, razorpay_signature } =
 			req.body.resp;
 		const sign = razorpay_order_id + "|" + razorpay_payment_id;
@@ -162,16 +160,59 @@ app.post("/verify", async (req, res) => {
 			.update(sign.toString())
 			.digest("hex");
             console.log(req.body.id+"\n"+req.body.w_id);
+        let myObj = new object();
 		if (razorpay_signature === expectedSign) {
+            if(req.body.w_id == "s1"){
+                console.log("s1");
+                async function a() {
+                    await myObj.payment(req.body.id, razorpay_payment_id, 1)
+                }
+                a();
+            }
+            if(req.body.w_id == "m1"){
+                console.log("m1");
+                async function a() {
+                    await myObj.mlworkshop(req.body.id, razorpay_payment_id, 1,"TXN_SUCCESS")
+                }
+                a();
+            }
+            if(req.body.w_id == "i1"){
+                console.log("i1");
+                async function a() {
+                    await myObj.pythonworkshop(req.body.id, razorpay_payment_id,1,"TXN_SUCCESS")
+                }
+                a();
+            }
+            if(req.body.w_id == "e1"){
+                console.log("e1");
+                async function a() {
+                    await myObj.ethicalworkshop(req.body.id, razorpay_payment_id,1,"TXN_SUCCESS")
+                }
+                a();
+            }
+            if(req.body.w_id == "a1"){
+                console.log("a1");
+                async function a() {
+                    await myObj.aiworkshop(req.body.id, razorpay_payment_id,1,"TXN_SUCCESS")
+                }
+                a();
+            }
+            if(req.body.w_id == "p1"){
+                console.log("p1");
+                async function a() {
+                    await myObj.android(req.body.id, razorpay_payment_id,1,"TXN_SUCCESS")
+                }
+                a();
+            }
 			return res.status(200).json({ message: "Payment verified successfully" });
 
 		} else {
 			return res.status(400).json({ message: "Invalid signature sent!" });
 		}
-	} catch (error) {
-		res.status(500).json({ message: "Internal Server Error!" });
-		console.log(error);
-	}
+	// } catch (error) {
+	// 	res.status(500).json({ message: "Internal Server Error!" });
+	// 	console.log(error);
+	// }
 });
 // app.post("/orders",async (req, res)=>{
 //     try{
@@ -215,7 +256,7 @@ app.post("/verify", async (req, res) => {
 //             if(razorpay_signature === expectedSign){
 //                 return res.status(200).json({message:"Payment verified successfully"});
 //             }else{
-//                 return res.status(400).json({message:"Invalid signature sent!"});
+//                 return res.(400).json({message:"Invalid signature sent!"});
 //             }
 //         } catch(error){
 //             console.log(error);
@@ -223,77 +264,77 @@ app.post("/verify", async (req, res) => {
 //         }
 //     });
 
-app.post('/response',function(req, res, next){
-    let red=req.body.txStatus
-    console.log("success")
-	var postData = {
-	  "orderId" : req.body.orderId,
-	  "orderAmount" : req.body.orderAmount,
-	  "referenceId" : req.body.referenceId,
-	  "txStatus" : req.body.txStatus,
-	  "paymentMode" : req.body.paymentMode,
-	  "txMsg" : req.body.txMsg,
-	  "txTime" : req.body.txTime
-	 },
-	secretKey = "secretKey",
+// app.post('/response',function(req, res, next){
+//     let red=req.body.txStatus
+//     console.log("success")
+// 	var postData = {
+// 	  "orderId" : req.body.orderId,
+// 	  "orderAmount" : req.body.orderAmount,
+// 	  "referenceId" : req.body.referenceId,
+// 	  "txStatus" : req.body.txStatus,
+// 	  "paymentMode" : req.body.paymentMode,
+// 	  "txMsg" : req.body.txMsg,
+// 	  "txTime" : req.body.txTime
+// 	 },
+// 	secretKey = "secretKey",
 
-    signatureData = "";
-    let myObj = new object();
-    let oid=req.body.orderId;
-    let userid=oid.substr(oid.length-6,4)
-    let type=oid.substr(oid.length-2,1)
-    let num=oid.substr(oid.length-1)
-    if(red=='SUCCESS')
-        red='TXN_SUCCESS'
-    let success=red
-    let txn=oid
-    if (success == "TXN_SUCCESS" && type == 's') {
-        async function a() {
-            await myObj.payment(userid, txn,num)
-        }
-        a();
-    }
-    else if (type == 'm') {
-        async function a() {
-            await myObj.mlworkshop(userid, txn, num, success)
-        }
-        a();
-    }
-    else if(type=='a'){
-        async function a(){
-            console.log("hello")
-            await myObj.android(userid, txn, num, success)
-        }
-        a();
-    }
-    else if(type=='e'){
-        async function a(){
-            return
-            await myObj.ethicalworkshop(userid, txn, num, success)
-        }
-        a();
-    }
-    if(type=='i'){
-        async function a(){
-            await myObj.aiworkshop(userid, txn, num, success)
-        }
-        a();
-    }
-    if(type=='p'){
-        async function a(){
-            await myObj.pythonworkshop(userid, txn, num, success)
-        }
-        a();
-    }
+//     signatureData = "";
+//     let myObj = new object();
+//     let oid=req.body.orderId;
+//     let userid=oid.substr(oid.length-6,4)
+//     let type=oid.substr(oid.length-2,1)
+//     let num=oid.substr(oid.length-1)
+//     if(red=='SUCCESS')
+//         red='TXN_SUCCESS'
+//     let success=red
+//     let txn=oid
+//     if (success == "TXN_SUCCESS" && type == 's') {
+//         async function a() {
+//             await myObj.payment(userid, txn,num)
+//         }
+//         a();
+//     }
+//     else if (type == 'm') {
+//         async function a() {
+//             await myObj.mlworkshop(userid, txn, num, success)
+//         }
+//         a();
+//     }
+//     else if(type=='a'){
+//         async function a(){
+//             console.log("hello")
+//             await myObj.android(userid, txn, num, success)
+//         }
+//         a();
+//     }
+//     else if(type=='e'){
+//         async function a(){
+//             return
+//             await myObj.ethicalworkshop(userid, txn, num, success)
+//         }
+//         a();
+//     }
+//     if(type=='i'){
+//         async function a(){
+//             await myObj.aiworkshop(userid, txn, num, success)
+//         }
+//         a();
+//     }
+//     if(type=='p'){
+//         async function a(){
+//             await myObj.pythonworkshop(userid, txn, num, success)
+//         }
+//         a();
+//     }
     
-	for (var key in postData) {
-		signatureData +=  postData[key];
-	}
-	var computedsignature = crypto.createHmac('sha256',secretKey).update(signatureData).digest('base64');
-	postData['signature'] = req.body.signature;
-	postData['computedsignature'] = computedsignature;
-	res.render('response',{postData : JSON.stringify(postData)});
-});
+// 	for (var key in postData) {
+// 		signatureData +=  postData[key];
+// 	}
+// 	var computedsignature = crypto.createHmac('sha256',secretKey).update(signatureData).digest('base64');
+// 	postData['signature'] = req.body.signature;
+// 	postData['computedsignature'] = computedsignature;
+// 	res.render('response',{postData : JSON.stringify(postData)});
+// });
 
 
 
@@ -400,4 +441,7 @@ app.post('/forgotpassword', (req, res) => {
     a();
 })
 
+app.get('/',(req,res)=>{
+    res.render('index', { title: 'RazorPay PG simulator' });
+})
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))

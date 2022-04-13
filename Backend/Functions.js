@@ -132,7 +132,7 @@ class myobject {
             from: '"SAMHITA 22"<samhita2k22@gmail.com>',
             to: mail,
             subject: "Samhita 2022 - User Registration",
-            html: '<img src="https://drive.google.com/thumbnail?id=1ndzBbN1rm32X46iCWAm71j7W08vwgvNu&sz=w200-h200"> <br> Hello!',
+            html: 'Greetings from the Team Samhita! Thank you for Registering.You can buy your tickets for events and workshop in samhita.org.in  Get your Tickets now! For Queries please contact respective event coordinators. <br> <img src="https://drive.google.com/thumbnail?id=1ndzBbN1rm32X46iCWAm71j7W08vwgvNu&sz=w200-h200"> <br><br> Thanks and regards,<br> Team Samhita <br> '
             /*attachements: [{
                 filename: 'samhita22_logo.png',
                 path: __dirname+'/samhita22_logo.png',
@@ -216,23 +216,31 @@ class myobject {
         if(det.workshopstatus>0&&det.workshopstatus!=10)
         {
             var res = {
-                'name': 'Placement Training Workshop by GeeksforGeeks',
+                'name': 'Placement Training and Resume Building Workshop',
                 'numberoftickets': '1',
-                'date': 'January 31, 9:30 AM - 12:30 PM',
-                'location':'Rajam Hall'
+                'date': 'April 23, 11 AM - 2:30 PM',
+                'location':'RLHC Conference Hall'
             }
             login['workshopstatus']['workshop'].push(res)
-        }
-        if(det.workshopstatus==10)
-        {
+        
             var res = {
-                'name': 'Placement Training Workshop by GeeksforGeeks',
+                'name': 'Data Science Workshop',
                 'numberoftickets': '1',
-                'date': 'January 31, 1:00 PM - 4:00 PM',
-                'location':'Rajam Hall '
+                'date': 'April 25, 4:30 PM - 5:30 PM',
+                'location':'ONLINE'
             }
             login['workshopstatus']['workshop'].push(res)
         }
+        // if(det.workshopstatus==10)
+        // {
+        //     var res = {
+        //         'name': 'Placement Training Workshop by GeeksforGeeks',
+        //         'numberoftickets': '1',
+        //         'date': 'January 31, 1:00 PM - 4:00 PM',
+        //         'location':'Rajam Hall '
+        //     }
+        //     login['workshopstatus']['workshop'].push(res)
+        // }
 
 
         var mldet = await mluser.findOne({
@@ -246,10 +254,10 @@ class myobject {
             if (status == 1) {
                 tickets = mldet.tickets
                 var res = {
-                    'name': 'Machine Learning Workshop by Google Developers',
+                    'name': 'Machine Learning and Deep Learning Workshop',
                     'numberoftickets': tickets,
-                    'date': 'February 1, 9:30 AM - 4 PM',
-                    'location':'Rajam Hall '
+                    'date': 'April 23, 9:30 AM - 4 PM',
+                    'location':'CT DEPT Conference Hall'
                 }
                 login['workshopstatus']['workshop'].push(res)
             }
@@ -263,10 +271,10 @@ class myobject {
             if (status == 1) {
                 let tickets = mldet.tickets
                 var res = {
-                    'name': 'Android App Development Workshop by Flutter from Google',
+                    'name': 'Blockchain Workshop',
                     'numberoftickets': tickets,
-                    'date': 'January 31, 9:30 AM - 4 PM',
-                    'location':'Admin block Conference Hall (Ground floor) '
+                    'date': 'April 24, 9:30 AM - 4:30 PM',
+                    'location':'KVN Seminar Hall(EI DEPT)'
                 }
                 login['workshopstatus']['workshop'].push(res)
             }
@@ -279,10 +287,10 @@ class myobject {
             if (status == 1) {
                 let tickets = mldet.tickets
                 var res = {
-                    'name': 'Python Programming Workshop by Renault Nissan',
+                    'name': 'Cloud Computing with AWS',
                     'numberoftickets': tickets,
-                    'date': 'February 1, 9:30 AM - 4 PM',
-                    'location':'IT Department PL lab (3rd floor) '
+                    'date': 'April 24, 9:30 AM - 4 PM',
+                    'location':'CT DEPT Conference Hall'
                 }
                 login['workshopstatus']['workshop'].push(res)
             }
@@ -295,10 +303,10 @@ class myobject {
             if (status == 1) {
                 let tickets = mldet.tickets
                 var res = {
-                    'name': 'Ethical Hacking Workshop by Zoho',
+                    'name': 'Ethical Hacking & Cybersecurity Workshop',
                     'numberoftickets': tickets,
-                    'date': 'February 1, 9:30 AM - 4 PM',
-                    'location':'Admin Block Conference Hall'
+                    'date': 'April 24, 9:30 AM - 4 PM',
+                    'location':'RLHC Conference Hall'
                 }
                 login['workshopstatus']['workshop'].push(res)
             }
@@ -311,10 +319,10 @@ class myobject {
             if (status == 1) {
                let tickets = mldet.tickets
                 var res = {
-                    'name': 'Artificial Intelligence Workshop by Facebook Developers',
+                    'name': 'UI/UX Bootcamp using React Native',
                     'numberoftickets': tickets,
-                    'date': 'January 31, 9:30 AM - 4 PM',
-                    'location':'CT Department 3rd floor conference hall '
+                    'date': 'April 23, 9:30 AM - 4 PM',
+                    'location':'KVN Seminar Hall(EI DEPT)'
                 }
                 login['workshopstatus']['workshop'].push(res)
             }
@@ -334,10 +342,12 @@ class myobject {
             userid: userid
         }, function(err, doc) {
 
-            doc.status = true;
+            doc.status = 1
             doc.txnid = txn
             if(num==9)
             doc.workshopstatus = 10
+            else
+            doc.workshopstatus = 1 
             doc.save();
         });
 
@@ -349,7 +359,7 @@ class myobject {
             }
           });
           
-          var str = "Hello! "+p_name+ " Thank You for your registration!";
+        //   var str = "Hello! "+p_name+ " Thank You for your registration!";
           var mailOptions = {
             from: '"SAMHITA 22"<samhita2k22@gmail.com>',
             to: mail,
@@ -434,18 +444,35 @@ class myobject {
                 doc.tickets = parseInt(doc.tickets) + parseInt(numoftickets)
                 doc.save();
             });
-            await sgMail.send({
-                to: email,
-                from: {
-                    email: 'admin@samhita.org.in',
-                    name: 'Samhita MIT'
-                },
-                templateId: 'd-cb451690a9e5426d86daf069fa8421e7',
-                dynamic_template_data: {
-                    name: name,
-                    userid:userid
+            var transporter = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                  user: "samhita2k22@gmail.com",
+                  pass: "samhitalokkie@1999"
                 }
-            })
+              });
+              
+            //   var str = "Hello! "+p_name+ " Thank You for your registration!";
+              var mailOptions = {
+                from: '"SAMHITA 22"<samhita2k22@gmail.com>',
+                to: mail,
+                subject: "Samhita 2022 - User Registration",
+                html:  'Greetings from the Team Samhita! Thank you for Registering Machine Learning and Deep Learning Workshop.<br> Date: April 23 <br> Time: 9:30 AM - 4 PM <br> For Queries please contact Workshop coordinator Bharath (7338938606)  <br><br> <img src="https://drive.google.com/thumbnail?id=1ndzBbN1rm32X46iCWAm71j7W08vwgvNu&sz=w200-h200"> <br> Thanks and regards,<br> Team Samhita <br>',
+                /*attachements: [{
+                    filename: 'samhita22_logo.png',
+                    path: __dirname+'/samhita22_logo.png',
+                    cid: "samhita22_logo"
+                }]*/
+              };
+            
+              transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log("Email sent: " + info.response);
+                }
+              });
+    
             await smsobject.mlworkshop(userid,name,phone,clg)
            
         } else {
@@ -494,18 +521,35 @@ class myobject {
                 doc.tickets = parseInt(doc.tickets) + parseInt(numoftickets)
                 doc.save();
             });
-            await sgMail.send({
-                to: email,
-                from: {
-                    email: 'admin@samhita.org.in',
-                    name: 'Samhita MIT'
-                },
-                templateId: 'd-4be92285735344e3b84b5cb2c9a8fee8',
-                dynamic_template_data: {
-                    name: name,
-                    userid:userid
+            var transporter = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                  user: "samhita2k22@gmail.com",
+                  pass: "samhitalokkie@1999"
                 }
-            })
+              });
+              
+            //   var str = "Hello! "+p_name+ " Thank You for your registration!";
+              var mailOptions = {
+                from: '"SAMHITA 22"<samhita2k22@gmail.com>',
+                to: mail,
+                subject: "Samhita 2022 - User Registration",
+                html:  'Greetings from the Team Samhita! Thank you for Registering Blockchain Workshop.<br> Date: April 24 <br> Time: 9:30 AM - 4:30 PM <br> For Queries please contact Workshop coordinator Madhusudhan (6379624413)  <br><br> <img src="https://drive.google.com/thumbnail?id=1ndzBbN1rm32X46iCWAm71j7W08vwgvNu&sz=w200-h200"> <br> Thanks and regards,<br> Team Samhita <br>',
+                /*attachements: [{
+                    filename: 'samhita22_logo.png',
+                    path: __dirname+'/samhita22_logo.png',
+                    cid: "samhita22_logo"
+                }]*/
+              };
+            
+              transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log("Email sent: " + info.response);
+                }
+              });
+    
             await smsobject.androidworkshop(userid,name,phone,clg)
           //  await ml.save()
         } else {
@@ -549,18 +593,35 @@ class myobject {
                 doc.tickets = parseInt(doc.tickets) + parseInt(numoftickets)
                 doc.save();
             });
-            await sgMail.send({
-                to: email,
-                from: {
-                    email: 'admin@samhita.org.in',
-                    name: 'Samhita MIT'
-                },
-                templateId: 'd-d9499dc39db7407ca7880cad775e8218',
-                dynamic_template_data: {
-                    name: name,
-                    userid:userid
+            var transporter = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                  user: "samhita2k22@gmail.com",
+                  pass: "samhitalokkie@1999"
                 }
-            })
+              });
+              
+            //   var str = "Hello! "+p_name+ " Thank You for your registration!";
+              var mailOptions = {
+                from: '"SAMHITA 22"<samhita2k22@gmail.com>',
+                to: mail,
+                subject: "Samhita 2022 - User Registration",
+                html:  'Greetings from the Team Samhita! Thank you for Registering UI/UX Bootcamp using React Native Workshop.<br> Date: April 23 <br> Time: 9:30 AM - 4 PM <br> For Queries please contact Workshop coordinator Madhusudhan (6379624413)  <br><br> <img src="https://drive.google.com/thumbnail?id=1ndzBbN1rm32X46iCWAm71j7W08vwgvNu&sz=w200-h200"> <br> Thanks and regards,<br> Team Samhita <br>',
+                /*attachements: [{
+                    filename: 'samhita22_logo.png',
+                    path: __dirname+'/samhita22_logo.png',
+                    cid: "samhita22_logo"
+                }]*/
+              };
+            
+              transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log("Email sent: " + info.response);
+                }
+              });
+    
             await smsobject.aiworkshop(userid,name,phone,clg)
         } else {
             await aiuser.findOne({
@@ -605,18 +666,36 @@ class myobject {
                 doc.tickets = parseInt(doc.tickets) + parseInt(numoftickets)
                 doc.save();
             });
-            await sgMail.send({
-                to: email,
-                from: {
-                    email: 'admin@samhita.org.in',
-                    name: 'Samhita MIT'
-                },
-                templateId: 'd-4e5192e80f574fbebfee82ecaa3a5f40',
-                dynamic_template_data: {
-                    name: name,
-                    userid:userid
+            var transporter = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                  user: "samhita2k22@gmail.com",
+                  pass: "samhitalokkie@1999"
                 }
-            })
+              });
+              
+            //   var str = "Hello! "+p_name+ " Thank You for your registration!";
+              var mailOptions = {
+                from: '"SAMHITA 22"<samhita2k22@gmail.com>',
+                to: mail,
+                subject: "Samhita 2022 - User Registration",
+                html:  'Greetings from the Team Samhita! Thank you for Registering Ethical Hacking and Cybersecurity Workshop.<br> Date: April 24 <br> Time: 9:30 AM - 4 PM <br> For Queries please contact Workshop coordinator Hariharan S (9500020859)  <br><br> <img src="https://drive.google.com/thumbnail?id=1ndzBbN1rm32X46iCWAm71j7W08vwgvNu&sz=w200-h200"> <br> Thanks and regards,<br> Team Samhita <br>',
+
+                /*attachements: [{
+                    filename: 'samhita22_logo.png',
+                    path: __dirname+'/samhita22_logo.png',
+                    cid: "samhita22_logo"
+                }]*/
+              };
+            
+              transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log("Email sent: " + info.response);
+                }
+              });
+    
             await smsobject.ethicalworkshop(userid,name,phone,clg)
 
         } else {
@@ -662,18 +741,36 @@ class myobject {
                 doc.tickets = parseInt(doc.tickets) + parseInt(numoftickets)
                 doc.save();
             });
-            await sgMail.send({
-                to: email,
-                from: {
-                    email: 'admin@samhita.org.in',
-                    name: 'Samhita MIT'
-                },
-                templateId: 'd-64c4a52be5734dff8197228b573e8cdf',
-                dynamic_template_data: {
-                    name: name,
-                    userid:userid
+            var transporter = nodemailer.createTransport({
+                service: "gmail",
+                auth: {
+                  user: "samhita2k22@gmail.com",
+                  pass: "samhitalokkie@1999"
                 }
-            })
+              });
+              
+            //   var str = "Hello! "+p_name+ " Thank You for your registration!";
+              var mailOptions = {
+                from: '"SAMHITA 22"<samhita2k22@gmail.com>',
+                to: mail,
+                subject: "Samhita 2022 - User Registration",
+                html:  'Greetings from the Team Samhita! Thank you for Registering Cloud Computing with AWS.<br> Date: April 24 <br> Time: 9:30 AM - 4 PM <br> For Queries please contact Workshop coordinator Bharath (7338938606)  <br><br> <img src="https://drive.google.com/thumbnail?id=1ndzBbN1rm32X46iCWAm71j7W08vwgvNu&sz=w200-h200"> <br> Thanks and regards,<br> Team Samhita <br>',
+
+                /*attachements: [{
+                    filename: 'samhita22_logo.png',
+                    path: __dirname+'/samhita22_logo.png',
+                    cid: "samhita22_logo"
+                }]*/
+              };
+            
+              transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log("Email sent: " + info.response);
+                }
+              });
+    
             await smsobject.pythonworkshop(userid,name,phone,clg)
 
         } else {

@@ -491,6 +491,8 @@ class Technical extends Component {
                                 <Event 
                                     avatar = {OLPC} 
                                     title = 'OLPC (OnLine Programming Contest)' 
+                                    date = {<><span>19<sup>th</sup> April, 2022</span></>}
+                                    olpcTime
                                     size = 'Solo' 
                                     online
                                     description = 'OLPC will test the proficiency in cracking logics, framing algorithms and data structures.'
@@ -499,6 +501,7 @@ class Technical extends Component {
                                 >
                                     <div>
                                         <ul>
+                                            <li>• This contest will be conducted online</li>
                                             <li>• There will be a single round.</li>
                                             <li>• You will be asked to code on <a href = 'https://www.hackerrank.com/' target = '_blank' rel = 'noreferrer noopener'>hackerrank</a>.</li>
                                             <li>• Every participant must have an hackerrank account.</li>

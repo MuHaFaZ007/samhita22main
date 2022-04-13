@@ -19,5 +19,5 @@ const userSchema = new Schema({
     
 });
 
-const User = mongoose.model('Android_db', userSchema);
+const User = mongoose.model('blockchain_db', userSchema);
 module.exports = User;

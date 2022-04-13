@@ -52,7 +52,7 @@ class Ticket extends Component {
             m1: 'wb%',
             e1: 'yo@',
             i1: 'yo@',
-            p1: 'qp-',
+            p1: 'yo@',
             a1: 'yo@'
         }
         const encryptedId = this.props.match.params.id
@@ -64,7 +64,7 @@ class Ticket extends Component {
 		})
         const userId = localStorage.getItem('id')
         this.setState({ isLoading: true, userId: userId }, () => {
-            axios.post(/*'https://samhitabackend.herokuapp.com/details'*/'http://localhost:4000/details', {
+            axios.post('https://samhitabackend.herokuapp.com/details'/*'http://localhost:4000/details'*/, {
                 userid: userId
             }).then(res => {
                 this.setState({ userData: res.data })
@@ -195,7 +195,7 @@ class Ticket extends Component {
 			order_id: data.id,
 			handler: async (response) => {
 				try {
-					const verifyUrl = /*'https://samhitabackend.herokuapp.com/verify'*/"http://localhost:4000/verify";
+					const verifyUrl = 'https://samhitabackend.herokuapp.com/verify'/*"http://localhost:4000/verify"*/;
 					const { data } = await axios.post(verifyUrl,{ resp: response,id: u_id,w_id : o_id});
 					console.log(data);
 				} catch (error) {
@@ -231,15 +231,15 @@ class Ticket extends Component {
                 console.log("amount:"+ amount);
 				// document.querySelector('.purchase-button').classList.add('is-loading')
 				// document.querySelector('.purchase-button').disabled = true
-				const orderUrl =/*'https://samhitabackend.herokuapp.com/orders'*/"http://localhost:4000/orders";
+				const orderUrl ='https://samhitabackend.herokuapp.com/orders'/*"http://localhost:4000/orders"*/;
                 const {data} = await axios.post(orderUrl,{amount: amount});
                 console.log(data);
-                this.initPayment(data.data)
+                this.initPayment(data.data,userId,originalId)
 			}
 		} else {
 			// document.querySelector('.purchase-button').classList.add('is-loading')
 			// document.querySelector('.purchase-button').disabled = true
-			const orderUrl = /*'https://samhitabackend.herokuapp.com/orders'*/"http://localhost:4000/orders";
+			const orderUrl = 'https://samhitabackend.herokuapp.com/orders'/*"http://localhost:4000/orders"*/;
             const {data} = await axios.post(orderUrl,{amount: amount});
             console.log(data);
             this.initPayment(data.data,userId,originalId)
@@ -407,9 +407,9 @@ class Ticket extends Component {
                                         originalId === 'p1' ?
 
                                         <tr className = 'checkout-detail-row'>
-                                            <th style = {{border: '1.5px solid #0071BC'}} className = 'has-text-centered'>Python Programming Workshop</th>
+                                            <th style = {{border: '1.5px solid #0071BC'}} className = 'has-text-centered'>Blockchain Workshop</th>
                                             <th style = {{border: '1.5px solid #0071BC'}} className = 'has-text-centered'>Admit: 1</th>
-                                            <th style = {{border: '1.5px solid #0071BC'}} className = 'has-text-centered'>Price: ₹ 749</th>
+                                            <th style = {{border: '1.5px solid #0071BC'}} className = 'has-text-centered'>Price: ₹ 799</th>
                                         </tr>
 
                                         :
@@ -439,7 +439,7 @@ class Ticket extends Component {
 											<div className = 'title is-6 has-text-centered has-text-link is-lato'>What do you wish to attend on buying Samhita '22 ticket?</div>
                                             <RadioGroup className = 'has-text-left is-lato' onChange = {this.onRadioChange} value = {radio}>
                                                 <Radio style = {{display: 'block', height: '30px'}} value={2}>
-                                                    <span className = 'is-size-6'>Events + Placement Workshop</span>
+                                                    <span className = 'is-size-6'>Events + Placement Workshop + Data Science Workshop</span>
                                                 </Radio>
                                             </RadioGroup>
 											{/* <div className = 'title is-6 has-text-centered is-lato' style = {{marginTop: '1.5rem'}}>Note: Placement training workshop seats are sold out.</div> */}

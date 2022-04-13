@@ -10,7 +10,7 @@ import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
 import { faFontAwesomeFlag } from '@fortawesome/free-brands-svg-icons'
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import SamhitaLogo from '../assets/Samhita-Main-Logo.png'
-import SamhitaTicket from '../assets/Ticket.png'
+import SamhitaTicket from '../assets/ticket1.png'
 import ACTLogo from '../assets/Sponsors/Cosponsor.png'
 import WorkshopPartnerImage from '../assets/Sponsors/Workshoppartner.png'
 import KitPartnerImage from '../assets/Sponsors/Kitpartner.png'
@@ -199,16 +199,18 @@ class Home extends Component {
                   
                     
                     <section className = 'section ticket-outer-container'>
-                    <div className = 'title is-hidden-tablet is-3 is-quicksand has-text-centered'>Get started!</div>
+                    <div className = 'title is-hidden-tablet is-3 is-quicksand has-text-centered' style={{color:"white", fontFamily:"ROBOTO"}}>Get started!</div>
+                       <br/>
+                       <br/>
                         <div className = 'container'>
                             <div className = 'columns' style={{paddingBottom:'10px',paddingTop:'10px'}}>
                                 <div className = 'column is-7'>
-                                    <div className='hovero'>
-                                        <img data-aos = 'fade-right'style={{height:'580px',width:'1300px'}} id = 'ticket-section'  src = {SamhitaTicket} alt= "Samhita '22 ticket" />
+                                    <div className='hovero img-fluid'>
+                                        <img data-aos = 'fade-right' id = 'ticket-section'  src = {SamhitaTicket} alt= "Samhita '22 ticket" />
                                     </div></div>
                                     <div className='column is-5'>
-                                        <br/>
-                                        <br/>
+                                        {/* <br/>
+                                        <br/> */}
                                     <div data-aos = 'fade-right' className = 'field'>
                                         <div className = 'control'>
                                             <div className = 'benefits-title' style={{color:'white'}}>
@@ -236,16 +238,16 @@ class Home extends Component {
                                                 <FontAwesomeIcon icon = {faArrowRight} />
                                             </span>
                                         </button>
-                                        <div className = 'subtitle is-6 is-lato has-text-weight-semibold has-text-danger' style = {{marginTop: '1rem'}}>*Registeration opens Soon.</div>
+                                        {/* <div className = 'subtitle is-6 is-lato has-text-weight-semibold has-text-danger' style = {{marginTop: '1rem'}}>*Registeration opens Soon.</div> */}
                                     </div>
                                     <div className = 'control is-hidden-tablet'>
-                                        <button className = 'button is-rounded is-lato has-text-weight-semibold is-danger' onClick = {() => this.props.history.push(`/checkout/${encryptedId}`)}>
+                                        <button className = 'button is-rounded is-lato has-text-weight-semibold' style={{backgroundColor:'#4ee9d7',border:'1px solid #4ee9d7'}}  onClick = {() => this.props.history.push(`/checkout/${encryptedId}`)}>
                                             <span>Get Ticket!</span>
                                             <span className = 'icon'>
                                                 <FontAwesomeIcon icon = {faArrowRight} />
                                             </span>
                                         </button>
-                                        <div className = 'subtitle is-6 is-lato has-text-weight-semibold has-text-danger' style = {{marginTop: '1rem'}}>*Registeration opens Soon.</div>
+                                        {/* <div className = 'subtitle is-6 is-lato has-text-weight-semibold has-text-danger' style = {{marginTop: '1rem'}}>*Registeration opens Soon.</div> */}
                                     </div>
                                 </div>
                             </div>         

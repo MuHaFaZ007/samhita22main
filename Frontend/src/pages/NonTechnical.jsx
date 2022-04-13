@@ -35,7 +35,7 @@ class NonTechnical extends Component {
         return(
             <React.Fragment>
                 <Helmet>
-                    <title>Samhita 20 - Non technical events</title>
+                    <title>Samhita 22 - Non technical events</title>
                 </Helmet>
                 <Navbar name = 'event'/>
                 <section className = 'section' style = {{backgroundColor: '#090a2b', minHeight: '100vh', display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
