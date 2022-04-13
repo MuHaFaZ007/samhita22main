@@ -217,7 +217,7 @@ class Profile extends Component {
                                                         </span>
                                                     </div>
                                                     <div className = 'is-hidden-tablet' style = {{marginLeft: '1rem'}}>
-                                                        <Avatar size = {105} style = {{backgroundColor: 'red', boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'}}>
+                                                        <Avatar size = {105} style = {{backgroundColor: '#1d9c9c', boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)'}}>
                                                             <img src = {ProfilePicture} alt = 'Profile' style = {{position: 'relative', zIndex:0, transform: 'scale(2.5)', top: '22px'}}/>
                                                         </Avatar>
                                                     </div>
@@ -333,7 +333,7 @@ class Profile extends Component {
                                                     {
                                                         isPaper === 0 ? 
 
-                                                        ' Placement Training workshop by GeeksforGeeks'
+                                                        ' Placement Training workshop by Guvi and Datascience workshop by Code Basics'
 
                                                         :
 
@@ -354,7 +354,7 @@ class Profile extends Component {
                                         <button className = 'button is-lato has-text-weight-semibold is-rounded ' style={{background:"#1d9c9c"}} onClick = {() => this.props.history.push(`/checkout/${encryptedId}`)}>
                                             Get ticket
                                         </button>
-                                        <div className = 'subtitle is-6 is-lato has-text-weight-semibold has-text-danger' style = {{marginTop: '1rem'}}>*Registeration opens Soon.</div>
+                                        {/* <div className = 'subtitle is-6 is-lato has-text-weight-semibold has-text-danger' style = {{marginTop: '1rem'}}>*Registeration opens Soon.</div> */}
                                     </div>
                                 }
                             </div>

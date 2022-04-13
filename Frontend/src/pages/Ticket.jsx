@@ -187,7 +187,7 @@ class Ticket extends Component {
 
     initPayment = (data,u_id,o_id) => {
 		const options = {
-			key: "rzp_test_h3jaqLG39VxWwP",
+			key: "rzp_live_BwhtU9HKjyqnRQ",
 			amount: data.amount,
 			currency: data.currency,
 			name: "SAMHITA'22",
@@ -469,9 +469,9 @@ class Ticket extends Component {
                             <div className = 'field' style = {{marginTop: '1.5rem'}}>
                                 <div className = 'control'>
                                     <div className = 'subtitle is-lato is-6 has-text-centered'>
-                                        <strong className = 'has-text-danger'>
+                                        {/* <strong className = 'has-text-danger'>
                                             Note: UPI payments are not advised, kindly choose other payment methods such as debit card, credit card or netbanking for successful payments without any issues.
-                                        </strong>
+                                        </strong> */}
                                     </div>
                                 </div>
                             </div>
